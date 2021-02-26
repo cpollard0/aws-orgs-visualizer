@@ -2,7 +2,6 @@ import boto3
 import json
 
 orgs = boto3.client('organizations')
-nodes = {}
 
 def get_children(node_id):
     account_children = orgs.list_children(ParentId=node_id, ChildType='ACCOUNT')
@@ -59,19 +58,19 @@ def get_root():
     # accounts = orgs.list_accounts()
 
     # print(accounts)
-
+    root_node = {}
     root = orgs.list_roots()
-    nodes['nodeId'] = root['Roots'][0]['Id']
-    nodes['Type'] = 'ORGANIZATIONAL_UNIT'
-    nodes['Name'] = 'Root'
-    nodes['children'] = []
-    nodes['parentNodeId'] = None
-    nodes['SCPS'] = get_policies(root['Roots'][0]['Id'], 'SERVICE_CONTROL_POLICY')
-    nodes['Tags'] = get_tags(root['Roots'][0]['Id'])
-    draw_nodes(nodes, root['Roots'][0]['Id'],nodes['SCPS'])
+    root_node['nodeId'] = root['Roots'][0]['Id']
+    root_node['Type'] = 'ORGANIZATIONAL_UNIT'
+    root_node['Name'] = 'Root'
+    root_node['children'] = []
+    root_node['parentNodeId'] = None
+    root_node['SCPS'] = get_policies(root['Roots'][0]['Id'], 'SERVICE_CONTROL_POLICY')
+    root_node['Tags'] = get_tags(root['Roots'][0]['Id'])
+    return draw_nodes(root_node, root['Roots'][0]['Id'],root_node['SCPS'])
 
 def main():
-    get_root()
+    nodes = get_root()
     with open('../website/orgs_data.json', 'w') as f:
         json.dump(nodes, f)
 
