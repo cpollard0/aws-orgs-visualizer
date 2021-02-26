@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+ <title>AWS Org Chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+<link rel="stylesheet" href="style.css">
+
+
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script> -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body translate="no" >
+
+  <div id="full-container">
+  <button class="btn-action btn-fullscreen" onclick="params.funcs.toggleFullScreen()">Fullscreen <span class='icon'/> <i class="fa fa-arrows-alt" aria-hidden="true"></i></span></button>
+  <button class=" btn-action btn-search" onclick="params.funcs.search()"> Search <span class='icon'/> <i class="fa fa-search" aria-hidden="true"></i></span></button>
+
+  <button class=" btn-action btn-back" onclick="params.funcs.back()"> Back <span class='icon'/> <i class="fa fa-arrow-left" aria-hidden="true"></i></span></button>
+
+  <div class="department-information">
+    <div class="dept-name">
+      dept name
+    </div>
+    <div class="dept-emp-count">
+      dept description test, this is department description
+    </div>
+     <div class="dept-description">
+      dept description test, this is department description
+    </div>
+  </div>
+
+  <div class="user-search-box">
+    <div class="input-box">
+      <div class="close-button-wrapper"><i onclick="params.funcs.closeSearchBox()" class="fa fa-times" aria-hidden="true"></i></div>
+      <div class="input-wrapper">
+        <input type="text" class="search-input" placeholder="Search" />
+        <div class="input-bottom-placeholder">By OU Name/ID/Arn, Account Name/ID/ARN,  Tags</div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div class="result-box">
+      <div class="result-header"> RESULTS </div>
+      <div class="result-list">
+
+
+        <div class="buffer"></div>
+      </div>
+    </div>
+  </div>
+  <div id="svgChart" class="chart-container"></div>
+   <button class="btn btn-expand" onclick="params.funcs.expandAll()">Expand All</button>
+</div>
+
+
+  <!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
+  <script src='d3.js'></script>
+  <script id="rendered-js"></script>
+
+</body>
+
+</html>
