@@ -783,8 +783,8 @@ var params = {
     }
 
     function expandAll() {
-      expand(root);
-      update(root);
+      expand(attrs.root);
+      update(attrs.root);
     }
 
     function expand(d) {
