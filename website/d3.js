@@ -216,7 +216,7 @@ var params = {
         .text(function(d) {
           return d.Name.trim();
         })
-        .call(wrap, attrs.nodeWidth);
+        .call(wrap, attrs.nodeWidth - 20);
 
     //   nodeGroup.append("text")
     //     .attr("x", dynamic.nodeTextLeftMargin)
