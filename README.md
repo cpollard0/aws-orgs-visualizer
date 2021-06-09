@@ -5,6 +5,6 @@ AWS organizations is an awesome way to set up your governance guardrails. Howeve
 
 The AWS org visualization tool inspects your AWS organizations structure and visualizes it in D3.
 
-First, run cd into `retrievedData` and run `python3 retrieve_data.py` to generate `orgs_data.json`. You'll need to have AWS credentials set that allow you to describe organizations in the management account.
+First, cd into `retrievedData` and run `python3 retrieve_data.py` to generate `orgs_data.json`. You'll need to have AWS credentials set that allow you to describe organizations in the management account.
 
 You can either then deploy the website folder to an s3 bucket set up as a static website, or run a local python server (by executing `python3 -m http.server`, as an example) and navigate to something like `http://localhost:8000` to see your org visualized.
